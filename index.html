@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salvium - The Next Generation of Compliant Private Blockchain</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="./js/include-footer.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #0AEB85;
+            --secondary-color: #181818;
+            --text-color: #FFF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #0AEB85, #08c46e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(10, 235, 133, 0.1) 0%, rgba(24, 24, 24, 0) 100%);
+        }
+        .particle {
+            position: absolute;
+            background: #0AEB85;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        .hero-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .hero-card:hover {
+            border-color: #0AEB85;
+            transform: translateY(-5px);
+        }
+        .hero-stats {
+            background: rgba(10, 235, 133, 0.05);
+            border: 1px solid rgba(10, 235, 133, 0.1);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(10, 235, 133, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(10, 235, 133, 0.1);
+        }
+
+        .btn-primary {
+            background: #0AEB85;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #08c46e;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(10, 235, 133, 0.3);
+        }
+
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(24, 24, 24, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding-top: 5rem;
+                min-height: auto;
+                padding-bottom: 3rem;
+            }
+            .mobile-stack {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .mobile-center {
+                text-align: center;
+            }
+            .mobile-full {
+                width: 100%;
+            }
+            .mobile-smaller-text {
+                font-size: 2.25rem;
+                line-height: 1.2;
+            }
+            .mobile-smaller-stats {
+                font-size: 1.5rem;
+            }
+            .mobile-padding {
+                padding: 1rem;
+            }
+            .mobile-logo {
+                width: 100px;
+                height: 100px;
+            }
+            .mobile-stack-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+            }
+            .mobile-container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            .mobile-mb {
+                margin-bottom: 2rem;
+            }
+            .mobile-mt {
+                margin-top: 2rem;
+            }
+            .mobile-reduced-padding {
+                padding: 0.75rem;
+            }
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            .hero-section {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar fixed w-full top-0 z-50 px-4 py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="flex items-center space-x-3 hover:opacity-80 transition-opacity duration-300">
+                    <img src="./Salvium_assets/coin_icon/white/circular/transparent/salvium_coin_white_512x512px_transparent.png" alt="Salvium Icon" class="h-8 w-8">
+                    <img src="./Salvium_assets/wordmark_logo/white/transparent/salvium_wordmark_white_512x512px_transparent.png" alt="Salvium Wordmark" class="h-14">
+                </div>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-white hover:text-[#0AEB85] transition">Home</a>
+                <a href="stats.html" class="text-white hover:text-[#0AEB85] transition">Stats</a>
+                <a href="roadmap.html" class="text-white hover:text-[#0AEB85] transition">Roadmap</a>
+                <a href="knowledge-base.html" class="text-white hover:text-[#0AEB85] transition">Knowledge Base</a>
+                <a href="#community" class="text-white hover:text-[#0AEB85] transition">Community</a>
+            </div>
+            <div class="md:hidden flex flex-col space-y-2">
+                <a href="index.html" class="text-white hover:text-[#0AEB85] transition block py-2">Home</a>
+                <a href="stats.html" class="text-white hover:text-[#0AEB85] transition block py-2">Stats</a>
+                <a href="roadmap.html" class="text-white hover:text-[#0AEB85] transition block py-2">Roadmap</a>
+                <a href="knowledge-base.html" class="text-white hover:text-[#0AEB85] transition block py-2">Knowledge Base</a>
+                <a href="#community" class="text-white hover:text-[#0AEB85] transition block py-2">Community</a>
+            </div>
+            <div>
+                <a href="#" class="btn-primary px-6 py-2 rounded-full text-black font-semibold">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative flex items-center overflow-hidden pt-20 pb-12 md:pt-32 md:pb-20">
+        <div id="particles-container" class="absolute inset-0"></div>
+        <div class="hero-gradient absolute inset-0"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 mobile-container">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                <!-- Left Column -->
+                <div class="text-left mobile-center mobile-mb" data-aos="fade-right">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 mobile-smaller-text">
+                        The Future of <span class="gradient-text">Private DeFi</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
+                        Experience true financial privacy with Salvium's innovative blockchain technology.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-8 md:mb-12 mobile-stack justify-center lg:justify-start">
+                        <a href="#" class="btn-primary px-6 md:px-8 py-3 rounded-full text-black font-semibold inline-block mobile-full lg:w-auto">
+                            Get Started
+                        </a>
+                        <a href="knowledge-base.html" class="px-6 md:px-8 py-3 rounded-full border border-[#0AEB85] text-white font-semibold inline-block hover:bg-[#0AEB85] hover:text-black transition duration-300 mobile-full lg:w-auto">
+                            Learn More
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mobile-stack-grid">
+                        <div class="hero-stats rounded-xl p-3 md:p-4 text-center mobile-reduced-padding">
+                            <h3 class="text-xl md:text-2xl font-bold gradient-text mobile-smaller-stats">$500M+</h3>
+                            <p class="text-xs md:text-sm text-gray-400">Total Value Locked</p>
+                        </div>
+                        <div class="hero-stats rounded-xl p-3 md:p-4 text-center mobile-reduced-padding">
+                            <h3 class="text-xl md:text-2xl font-bold gradient-text mobile-smaller-stats">100k+</h3>
+                            <p class="text-xs md:text-sm text-gray-400">Active Users</p>
+                        </div>
+                        <div class="hero-stats rounded-xl p-3 md:p-4 text-center mobile-reduced-padding">
+                            <h3 class="text-xl md:text-2xl font-bold gradient-text mobile-smaller-stats">1M+</h3>
+                            <p class="text-xs md:text-sm text-gray-400">Transactions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column -->
+                <div class="relative mobile-mt" data-aos="fade-left">
+                    <div class="relative z-20 flex justify-center items-center mb-8">
+                        <div class="floating bg-[#181818] rounded-full p-3 md:p-4" style="transform-origin: center center;">
+                            <img src="./Salvium_assets/coin_icon/white/circular/transparent/salvium_coin_white_512x512px_transparent.png" alt="Salvium Icon" class="w-32 h-32 md:w-40 md:h-40 mobile-logo">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 relative z-10">
+                        <div class="hero-card rounded-xl p-3 md:p-4 text-center mobile-reduced-padding">
+                            <h3 class="text-lg md:text-lg font-semibold mb-2">Private Transactions</h3>
+                            <p class="text-xs md:text-sm text-gray-400">Complete privacy for all your DeFi operations</p>
+                        </div>
+                        <div class="hero-card rounded-xl p-3 md:p-4 text-center mobile-reduced-padding">
+                            <h3 class="text-lg md:text-lg font-semibold mb-2">Smart Contracts</h3>
+                            <p class="text-xs md:text-sm text-gray-400">Advanced programmable privacy features</p>
+                        </div>
+                        <div class="hero-card rounded-xl p-3 md:p-4 text-center mobile-reduced-padding">
+                            <h3 class="text-lg md:text-lg font-semibold mb-2">Cross-Chain</h3>
+                            <p class="text-xs md:text-sm text-gray-400">Seamless integration with major blockchains</p>
+                        </div>
+                        <div class="hero-card rounded-xl p-3 md:p-4 text-center mobile-reduced-padding">
+                            <h3 class="text-lg md:text-lg font-semibold mb-2">High Security</h3>
+                            <p class="text-xs md:text-sm text-gray-400">Military-grade encryption protocols</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-black bg-opacity-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                Why Choose <span class="gradient-text">Salvium</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-[#0AEB85] text-4xl mb-4">🔒</div>
+                    <h3 class="text-2xl font-semibold mb-4">Compliant Privacy</h3>
+                    <p class="text-gray-400">Monero-grade privacy with compliance features that give it the edge in a regulated world.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-[#0AEB85] text-4xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-semibold mb-4">Private DeFi</h3>
+                    <p class="text-gray-400">Built with Transactional Imbalances and Asynchronous Transactions, enabling private, secure DeFi solutions.</p>
+                </div>
+                <div class="feature-card p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-[#0AEB85] text-4xl mb-4">🌱</div>
+                    <h3 class="text-2xl font-semibold mb-4">Staking Rewards</h3>
+                    <p class="text-gray-400">Earn yield privately with staking. Receive 20% of the block rewards while securing the network.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section id="ecosystem" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-up">
+                Salvium <span class="gradient-text">Ecosystem</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="p-8" data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold mb-4">DeFi Innovation</h3>
+                    <p class="text-gray-400 mb-6">Shaping the future of decentralized finance with groundbreaking features:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <span class="text-[#0AEB85] mr-2">✓</span>
+                            Transactional Imbalances (TI)
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#0AEB85] mr-2">✓</span>
+                            Asynchronous Transactions (AT)
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#0AEB85] mr-2">✓</span>
+                            Conditional Payments (CP)
+                        </li>
+                    </ul>
+                </div>
+                <div class="p-8" data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold mb-4">Ecosystem Features</h3>
+                    <p class="text-gray-400 mb-6">A comprehensive suite of features for the future of private finance:</p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center">
+                            <span class="text-[#0AEB85] mr-2">✓</span>
+                            Layer-2 Networks
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#0AEB85] mr-2">✓</span>
+                            Atomic Swaps
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-[#0AEB85] mr-2">✓</span>
+                            Solidity-based DApps
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-black bg-opacity-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-8" data-aos="fade-up">
+                Ready to Take the <span class="gradient-text">Pill</span>?
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Start your journey with Salvium today and be part of the next generation of Private DeFi.
+            </p>
+            <a href="#" class="btn-primary px-12 py-4 rounded-full text-black font-semibold inline-block" data-aos="fade-up" data-aos-delay="200">
+                Get Started Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <img src="./Salvium_assets/wordmark_logo/white/transparent/salvium_wordmark_white_512x512px_transparent.png" alt="Salvium Logo" style="height:80px;width:auto;" class="mb-8">
+                    <p class="text-gray-400">Private blockchain with DeFi</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://salvium.io/papers/" class="text-gray-400 hover:text-white">Litepaper</a></li>
+                        <li><a href="knowledge-base.html" class="text-gray-400 hover:text-white">Knowledge Base</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">GitHub</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Ecosystem</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://salvium.io/exchanges/" class="text-gray-400 hover:text-white">Exchanges</a></li>
+                        <li><a href="https://salvium.io/downloads/" class="text-gray-400 hover:text-white">Downloads</a></li>
+                        <li><a href="https://explorer.salvium.io" class="text-gray-400 hover:text-white">Block Explorer</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://x.com/salvium_io" class="text-gray-400 hover:text-white flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                            Twitter
+                        </a></li>
+                        <li><a href="https://discord.com/invite/P3rrAjkyYs" class="text-gray-400 hover:text-white flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/></svg>
+                            Discord
+                        </a></li>
+                        <li><a href="https://t.me/salviumcommunity" class="text-gray-400 hover:text-white flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.015-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-.751-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.015 3.333-1.386 4.025-1.627 4.477-1.635.099-.002.321.023.465.141.12.098.153.228.166.336.032.272-.013 1.03-.065 1.463z"/></svg>
+                            Telegram
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>&copy; 2024 Salvium. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Create animated particles
+        function createParticle() {
+            const container = document.getElementById('particles-container');
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+            // Random size between 2 and 6 pixels
+            const size = Math.random() * 4 + 2;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position
+            const posX = Math.random() * window.innerWidth;
+            const posY = Math.random() * window.innerHeight;
+            particle.style.left = `${posX}px`;
+            particle.style.top = `${posY}px`;
+            
+            container.appendChild(particle);
+            
+            // Animate the particle
+            const angle = Math.random() * Math.PI * 2;
+            const velocity = Math.random() * 1 + 0.5;
+            const dx = Math.cos(angle) * velocity;
+            const dy = Math.sin(angle) * velocity;
+            
+            let x = posX;
+            let y = posY;
+            
+            function animate() {
+                x += dx;
+                y += dy;
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                
+                // Remove particle if it's out of viewport
+                if (x < -10 || x > window.innerWidth + 10 || y < -10 || y > window.innerHeight + 10) {
+                    particle.remove();
+                } else {
+                    requestAnimationFrame(animate);
+                }
+            }
+            
+            animate();
+        }
+
+        // Create new particles periodically
+        setInterval(createParticle, 200);
+    </script>
+</body>
+</html>
